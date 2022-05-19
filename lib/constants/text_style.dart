@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
+TextStyle boldStyle = GoogleFonts.openSans(
+  fontSize: 90,
+  fontWeight: FontWeight.w500,
+);
 
 TextStyle headingStyle1 = GoogleFonts.openSans(
   fontSize: 29,

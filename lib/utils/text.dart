@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/constants/text_style.dart';
 
 class AppText extends StatelessWidget {
+   //constructor for bold style
+  AppText.bold(
+      {Key? key,
+      required this.text,
+      this.color,
+      this.centered = false,
+      this.maxlines,
+      this.multilines = false})
+      : style = boldStyle.copyWith(color: color),
+        super(key: key);
   //constructor for heading 1 style
   AppText.heading1(
       {Key? key,
