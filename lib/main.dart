@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/constants/image_keys.dart';
 import 'package:weather_app/utils/color.dart';
-import 'package:weather_app/views/body/body.dart';
+import 'package:weather_app/utils/functions.dart';
+import 'package:weather_app/views/splash/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,9 +11,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
+static final WeatherFunction functions = WeatherFunction();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Future.wait([
+      functions.loadingImage(context,ImageKeys.clear),
+      functions.loadingImage(context,ImageKeys.cloud),
+      functions.loadingImage(context,ImageKeys.rain),
+      functions.loadingImage(context,ImageKeys.pressure),
+      functions.loadingImage(context,ImageKeys.humidity),
+      functions.loadingImage(context,ImageKeys.wind),
+    ]);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -26,7 +38,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: kPrimaryColor,
       ),
-      home: const Body(),
+      home: SplashView(),
     );
   }
 }
